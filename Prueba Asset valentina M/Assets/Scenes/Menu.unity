@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 387449722}
   - component: {fileID: 387449721}
   m_Layer: 5
-  m_Name: Opciones
+  m_Name: Opciones.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 478175870}
   - component: {fileID: 478175869}
   m_Layer: 5
-  m_Name: Instrucciones
+  m_Name: Instrucciones.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 1017565696}
   - component: {fileID: 1017565695}
   m_Layer: 5
-  m_Name: Jugar
+  m_Name: Jugar.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 1042017370}
   - component: {fileID: 1042017369}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: Salir.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 1159973250}
   - component: {fileID: 1159973249}
   m_Layer: 5
-  m_Name: "Cr\xE9ditos"
+  m_Name: "Cr\xE9ditos."
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
