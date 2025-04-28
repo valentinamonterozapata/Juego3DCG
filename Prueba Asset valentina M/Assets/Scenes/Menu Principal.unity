@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 178209418}
   - component: {fileID: 178209417}
   m_Layer: 5
-  m_Name: Titulo
+  m_Name: Titulo.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1973,6 +1973,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
-  - {fileID: 705507995}
   - {fileID: 705742086}
+  - {fileID: 705507995}
   - {fileID: 1123197238}
