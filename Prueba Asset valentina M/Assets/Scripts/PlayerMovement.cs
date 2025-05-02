@@ -21,11 +21,5 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Rotate(0, x * Time.deltaTime * speedRotation, 0);
         transform.Translate(0, 0, y * Time.deltaTime * speed);
-
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.velocity = movement * speed;
     }
 }
