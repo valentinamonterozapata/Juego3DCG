@@ -1,18 +1,18 @@
+// ZombieChaseSimple.cs
 using UnityEngine;
-using UnityEngine.AI;
 
-public class ZombieChase : MonoBehaviour
+public class ZombieChaseSimple : MonoBehaviour
 {
     public Transform player;
-    private NavMeshAgent agent;
-
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
+    public float speed = 3f;
 
     void Update()
     {
-        agent.SetDestination(player.position);
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            player.position,
+            speed * Time.deltaTime
+        );
+        transform.LookAt(player); // Opcional: que mire al jugador
     }
 }
