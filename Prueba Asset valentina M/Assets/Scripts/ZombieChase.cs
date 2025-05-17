@@ -1,4 +1,3 @@
-// ZombieChaseSimple.cs
 using UnityEngine;
 
 public class ZombieChaseSimple : MonoBehaviour
