@@ -8752,8 +8752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1b8bfe5ac5cb74ea9e7dc5309dcf21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  speedRotation: 200
+  walkSpeed: 3
+  runSpeed: 47
+  jumpForce: 5
+  rotationSpeed: 200
 --- !u!54 &1019789460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12033,6 +12035,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393398744}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.31, y: -0.19, z: 1.48}
+  m_LocalScale: {x: 1.225, y: 1, z: 1.2125}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1409499005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409499006}
+  m_Layer: 0
+  m_Name: prueba
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409499006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409499005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.31, y: -0.19, z: 1.48}
@@ -17467,6 +17500,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1393398748}
+  - {fileID: 1409499006}
   - {fileID: 1260518580}
   - {fileID: 914793129}
   - {fileID: 230701801}
