@@ -44548,13 +44548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d48e8fff2174d429f40907d8821b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 0
-  speedRotation: 0
-  x: 0
-  y: 0
-  rb: {fileID: 815429405}
-  forceJump: 6
-  canJump: 0
 --- !u!1 &816154825
 GameObject:
   m_ObjectHideFlags: 0
