@@ -6,7 +6,9 @@ public class Menu : MonoBehaviour
     
     public GameObject opcionesPanel;
     public GameObject instruccionesPanel;
+    public GameObject instruccionesPane2;
     public GameObject creditosPanel;
+
 
     
     public GameObject menuPrincipalPanel;
@@ -38,8 +40,13 @@ public class Menu : MonoBehaviour
         CerrarTodosLosPaneles();
         creditosPanel.SetActive(true);
     }
+    public void Siguiente()
+    {
+        CerrarTodosLosPaneles();
+        instruccionesPane2.SetActive(true);
+    }
 
-    
+
     public void Salir()
     {
         
