@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float rotationSpeed = 200f;
 
-    int isBackwalkHash;
-    int isWalkingHash;
-    int isRunningHash;
+    int isBackwalk;
+    int isWalking;
+    int isRunning;
 
     private Animator anim;
     private Rigidbody rb;
@@ -21,16 +21,16 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 
-        isBackwalkHash = Animator.StringToHash("isBackwalk");
-        isWalkingHash = Animator.StringToHash("isWalking");
-        isRunningHash = Animator.StringToHash("isRunning");
+        isBackwalk = Animator.StringToHash("isBackwalk");
+        isWalking = Animator.StringToHash("isWalking");
+        isRunning = Animator.StringToHash("isRunning");
     }
 
     void Update()
     {
-        bool isRunning = anim.GetBool(isRunningHash);
-        bool isWalking = anim.GetBool(isWalkingHash);
-        bool isBackwalk = anim.GetBool(isBackwalkHash);
+        bool isRunning = anim.GetBool(this.isRunning);
+        bool isWalking = anim.GetBool(this.isWalking);
+        bool isBackwalk = anim.GetBool(this.isBackwalk);
 
         bool backwalkPressed = Input.GetKey("s");
         bool forwardPressed = Input.GetKey("w");
@@ -42,21 +42,21 @@ public class PlayerMovement : MonoBehaviour
         // Caminata hacia adelante
         if (!isWalking && forwardPressed)
         {
-            anim.SetBool(isWalkingHash, true);
+            anim.SetBool(this.isWalking, true);
         }
         if (isWalking && !forwardPressed)
         {
-            anim.SetBool(isWalkingHash, false);
+            anim.SetBool(this.isWalking, false);
         }
 
         // Caminata hacia atrás
         if (!isBackwalk && backwalkPressed)
         {
-            anim.SetBool(isBackwalkHash, true);
+            anim.SetBool(this.isBackwalk, true);
         }
         if (isBackwalk && !backwalkPressed)
         {
-            anim.SetBool(isBackwalkHash, false);
+            anim.SetBool(this.isBackwalk, false);
         }
 
         // Rotación
@@ -65,11 +65,11 @@ public class PlayerMovement : MonoBehaviour
         // Correr hacia adelante solamente
         if (!isRunning && (forwardPressed && runPressed))
         {
-            anim.SetBool(isRunningHash, true);
+            anim.SetBool(this.isRunning, true);
         }
         if (isRunning && (!forwardPressed || !runPressed))
         {
-            anim.SetBool(isRunningHash, false);
+            anim.SetBool(this.isRunning, false);
         }
 
         // Determinar velocidad actual

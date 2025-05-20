@@ -1,15 +1,23 @@
-using UnityEngine;
+//using TMPro;
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
 
-public class KeyPickup : MonoBehaviour
-{
-    public GameObject puerta; // Asigna la PuertaSalida en el Inspector
+//public class KeyPickup : MonoBehaviour
+//{
+//    public bool hasKey = false;
+//    public TextMeshProUGUI keyCounterText; // Asigna el Texto del Canvas
+//    public string nextSceneName = "Scene2EC";
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            puerta.SetActive(false); // Desactiva la puerta
-            Destroy(gameObject); // Destruye la llave
-        }
-    }
-}
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if (other.CompareTag("Door") && hasKey) // Si tiene llave y toca la puerta
+//        {
+//            SceneManager.LoadScene(nextSceneName);
+//        }
+//    }
+
+//    public void UpdateKeyUI()
+//    {
+//        keyCounterText.text = "Llave: " + (hasKey ? "1" : "0");
+//    }
+//}

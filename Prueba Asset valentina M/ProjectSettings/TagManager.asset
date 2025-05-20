@@ -8,14 +8,15 @@ TagManager:
   - Key
   - Ground
   - vidas
+  - Door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Key
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
