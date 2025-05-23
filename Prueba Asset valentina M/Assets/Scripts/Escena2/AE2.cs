@@ -6,6 +6,7 @@ public class AE2 : MonoBehaviour
 {
 
     public CanvasGroup panelGroup;
+    public AudioSource audioSource;
     public float tiempoVisible = 6f;
     public float tiempoDesvanecer = 1f;
 
@@ -30,5 +31,11 @@ public class AE2 : MonoBehaviour
 
         panelGroup.alpha = 0f;
         panelGroup.gameObject.SetActive(false);
+
+
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 }
