@@ -1,59 +1,52 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Image[] corazonesUI; // Máximo 5 corazones visibles
-    public int totalCorazones = 10; // Total de corazones en la escena
-    private int corazones = 0; // Corazones actuales del jugador (máx 5)
-    private int corazonesRecolectados = 0; // Corazones recogidos en total
-
+    public Image[] corazonesUI; 
+    private int corazones = 0; 
+    
     void Awake()
     {
-        if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                // DontDestroyOnLoad(gameObject); // Elimina o comenta esta línea
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
         }
-    }
 
     private void Start()
     {
-        for (int i = 0; i < corazonesUI.Length; i++)
-        {
-            corazonesUI[i].enabled = false;
-        }
+        OcultarCorazonesUI();
     }
 
     public void AgregarCorazon()
     {
-        if (corazonesRecolectados < totalCorazones)
+        if (corazones < corazonesUI.Length)
         {
-            corazonesRecolectados++;
-            if (corazones < corazonesUI.Length)
-            {
-                corazones++;
-                ActualizarCorazonesUI();
-            }
+            corazones++;
+            ActualizarCorazonesUI();
         }
     }
 
-    public void QuitarCorazon()
+    public int CantidadCorazones()
     {
-        if (corazones > 0)
-        {
-            corazones--;
-            ActualizarCorazonesUI();
-        }
-        RevisarFinDeJuego();
+        return corazones;
+    }
+
+    public void ReiniciarEscena()
+    {
+        corazones = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void ActualizarCorazonesUI()
@@ -64,19 +57,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RevisarFinDeJuego()
+    public void QuitarCorazon()
     {
-        GameObject[] corazonesEnEscena = GameObject.FindGameObjectsWithTag("corazon");
-        Debug.Log("Corazones en escena: " + corazonesEnEscena.Length + " | Corazones jugador: " + corazones);
-
-        if (corazonesEnEscena.Length == 0 && corazones == 0)
+        if (corazones > 0)
         {
-            Debug.Log("Reiniciando escena...");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            corazones--;
+            ActualizarCorazonesUI();
+        }
+        if (corazones == 0)
+        {
+            ReiniciarEscena();
         }
     }
 
+    private void OcultarCorazonesUI()
+    {
+        for (int i = 0; i < corazonesUI.Length; i++)
+        {
+            corazonesUI[i].enabled = false;
+        }
+    }
 }
+
 
 
 

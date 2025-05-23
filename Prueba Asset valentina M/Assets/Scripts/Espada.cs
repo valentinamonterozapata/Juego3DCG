@@ -1,19 +1,50 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class Espada : MonoBehaviour
 {
-    // Nombre de la escena a cargar
-    public string nombreEscena = "Scene4";
+    public string nombreSiguienteEscena = "Scene4"; 
+    public TextMeshProUGUI mensajeEspada; 
+    public float duracionMensaje = 7f; 
 
-    // Método que se ejecuta cuando algo entra en el trigger
     private void OnTriggerEnter(Collider other)
     {
-        // Verificar si el objeto que colisiona tiene la etiqueta "Player"
         if (other.CompareTag("Player"))
         {
-            // Cargar la escena 4
-            SceneManager.LoadScene(nombreEscena);
+            if (GameManager.Instance.CantidadCorazones() == 5)
+            {
+                SceneManager.LoadScene(nombreSiguienteEscena);
+            }
+            else
+            {
+                MostrarMensaje("¡RECOLECTA LOS 5 CORAZONES ANTES DE CONTINUAR !" +
+                                 "TEN CUIDADO CON LAS ESTATUAS");
+            }
         }
     }
+
+    private void MostrarMensaje(string mensaje)
+    {
+        Debug.Log("Intentando mostrar mensaje: " + mensaje);
+        if (mensajeEspada != null)
+        {
+            mensajeEspada.text = mensaje;
+            mensajeEspada.gameObject.SetActive(true);
+            StopAllCoroutines();
+            StartCoroutine(DesactivarMensaje());
+        }
+        else
+        {
+            Debug.LogWarning("mensajeEspada no está asignado en el Inspector.");
+        }
+    }
+
+    private IEnumerator DesactivarMensaje()
+    {
+        yield return new WaitForSeconds(duracionMensaje);
+        mensajeEspada.gameObject.SetActive(false);
+    }
 }
+

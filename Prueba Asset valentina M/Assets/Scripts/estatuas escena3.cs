@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class estatuasescena3 : MonoBehaviour
 {
-    public float distancia = 2f; // Distancia máxima a cada lado desde la posición inicial
-    public float velocidadMovimiento = 2f; // Velocidad del movimiento lateral
-    public float velocidadRotacion = 30f; // Velocidad de rotación
+    public float distancia = 2f; // distancia hasta punto inicial
+    public float velocidadMovimiento = 2f; // lateral
+    public float velocidadRotacion = 30f; //rotación
 
     private Vector3 posicionInicial;
 
@@ -15,7 +16,7 @@ public class estatuasescena3 : MonoBehaviour
 
     void Update()
     {
-        // Movimiento lateral en el eje X respecto a la posición inicial
+        
         float desplazamientoX = Mathf.Sin(Time.time * velocidadMovimiento) * distancia;
         transform.position = new Vector3(
             posicionInicial.x + desplazamientoX,
@@ -23,7 +24,7 @@ public class estatuasescena3 : MonoBehaviour
             posicionInicial.z
         );
 
-        // Rotación sobre su propio eje Y (opcional)
+        
         transform.Rotate(Vector3.up, velocidadRotacion * Time.deltaTime, Space.Self);
     }
 
@@ -31,11 +32,11 @@ public class estatuasescena3 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.QuitarCorazon();
-            // Aquí puedes agregar efectos, sonidos, o empujar al jugador si lo deseas
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
+
 
 
 
