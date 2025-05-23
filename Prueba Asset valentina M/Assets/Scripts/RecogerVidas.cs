@@ -7,8 +7,9 @@ public class RecogerVidas : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.AgregarCorazon();
-            Destroy(gameObject);
+            Destroy(gameObject); // Esto elimina el corazón de la escena
         }
     }
 }
+
 
