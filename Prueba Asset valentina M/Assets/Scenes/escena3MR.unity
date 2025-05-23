@@ -405,6 +405,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3717562375165872312, guid: 49c278db0e777984f9d0f760252ebea8, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig9:Hips'\n\tTransform 'mixamorig9:LeftHandRing3'\n\tTransform
+        'mixamorig9:RightHandRing1'\n\tTransform 'mixamorig9:LeftHandPinky3'\n\tTransform
+        'mixamorig9:LeftHandIndex2'\n\tTransform 'mixamorig9:RightHandThumb2'\n\tTransform
+        'mixamorig9:LeftForeArm'\n\tTransform 'mixamorig9:LeftFoot'\n\tTransform
+        'mixamorig9:RightHandThumb3'\n\tTransform 'mixamorig9:RightHandPinky1'\n\tand
+        more ...\n\tFrom animation clip 'Walking Backwards'"
+      objectReference: {fileID: 0}
     - target: {fileID: 7311386858014069442, guid: 49c278db0e777984f9d0f760252ebea8, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

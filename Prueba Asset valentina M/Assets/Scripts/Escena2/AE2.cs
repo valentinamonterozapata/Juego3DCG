@@ -5,16 +5,30 @@ using UnityEngine;
 public class AE2 : MonoBehaviour
 {
 
-    public 
-    // Start is called before the first frame update
+    public CanvasGroup panelGroup;
+    public float tiempoVisible = 6f;
+    public float tiempoDesvanecer = 1f;
+
     void Start()
     {
-        
+        StartCoroutine(MostrarYDesvanecer());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MostrarYDesvanecer()
     {
-        
+        panelGroup.alpha = 1f;
+        panelGroup.gameObject.SetActive(true);
+        yield return new WaitForSeconds(tiempoVisible);
+
+        float t = 0f;
+        while (t < tiempoDesvanecer)
+        {
+            t += Time.deltaTime;
+            panelGroup.alpha = 1 - (t / tiempoDesvanecer);
+            yield return null;
+        }
+
+        panelGroup.alpha = 0f;
+        panelGroup.gameObject.SetActive(false);
     }
 }
