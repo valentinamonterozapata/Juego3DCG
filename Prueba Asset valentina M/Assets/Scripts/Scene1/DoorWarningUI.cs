@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class DoorWarningUI : MonoBehaviour
 {
-    public GameObject warningPanel; // Arrastra el Panel aquí
-    public float displayDistance = 3f; // Rango para mostrar aviso
+    public GameObject warningPanel;
+    public float displayDistance = 3f;
     private Transform player;
     private Transform door;
     private PlayerKeySystem playerKeySystem;
@@ -14,7 +14,7 @@ public class DoorWarningUI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         door = GameObject.FindGameObjectWithTag("Door").transform;
         playerKeySystem = player.GetComponent<PlayerKeySystem>();
-        warningPanel.SetActive(false); // Oculta al inicio
+        warningPanel.SetActive(false);
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class DoorWarningUI : MonoBehaviour
 
         float distance = Vector3.Distance(player.position, door.position);
 
-        // Muestra el aviso si está cerca y NO tiene llave
+       
         if (distance <= displayDistance && !playerKeySystem.hasKey)
         {
             warningPanel.SetActive(true);

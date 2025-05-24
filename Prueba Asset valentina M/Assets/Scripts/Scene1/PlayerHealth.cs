@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 3;
-    public int currentHealth { get; private set; } // Para debug
+    public int currentHealth { get; private set; }
 
     void Start()
     {
