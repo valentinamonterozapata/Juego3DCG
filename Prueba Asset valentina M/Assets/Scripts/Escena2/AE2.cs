@@ -1,14 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AE2 : MonoBehaviour
 {
-
     public CanvasGroup panelGroup;
     public AudioSource audioSource;
     public float tiempoVisible = 6f;
     public float tiempoDesvanecer = 1f;
+
+    public Temporizador temporizador; // Referencia al script del temporizador
 
     void Start()
     {
@@ -32,10 +32,14 @@ public class AE2 : MonoBehaviour
         panelGroup.alpha = 0f;
         panelGroup.gameObject.SetActive(false);
 
-
         if (audioSource != null)
         {
             audioSource.Play();
+        }
+
+        if (temporizador != null)
+        {
+            temporizador.IniciarTemporizador(); // Inicia el temporizador al terminar
         }
     }
 }

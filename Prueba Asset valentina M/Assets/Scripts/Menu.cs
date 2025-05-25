@@ -9,9 +9,10 @@ public class Menu : MonoBehaviour
     
     public GameObject opcionesPanel;
     public GameObject instruccionesPanel;
-    public GameObject instruccionesPane2;
     public GameObject creditosPanel;
+    public GameObject MostrarControles;
     public GameObject menuPrincipalPanel;
+    
 
     public GameObject panelIngresoNombre;
 
@@ -46,10 +47,11 @@ public class Menu : MonoBehaviour
         CerrarTodosLosPaneles();
         creditosPanel.SetActive(true);
     }
-    public void Siguiente()
+   
+    public void MostrarControless()
     {
         CerrarTodosLosPaneles();
-        instruccionesPane2.SetActive(true);
+        MostrarControles.SetActive(true);
     }
 
 
@@ -89,6 +91,7 @@ public class Menu : MonoBehaviour
         instruccionesPanel.SetActive(false);
         creditosPanel.SetActive(false);
         menuPrincipalPanel.SetActive(false);
+        MostrarControles.SetActive(false);
     }
 
     
