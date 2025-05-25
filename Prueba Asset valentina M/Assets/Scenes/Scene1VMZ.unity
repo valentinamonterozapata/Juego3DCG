@@ -13382,7 +13382,7 @@ Transform:
   m_GameObject: {fileID: 243286710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.2, y: 1.42, z: 2.5}
+  m_LocalPosition: {x: 9.2, y: 1.11, z: 2.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13421,7 +13421,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.6745098, g: 0, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -21501,7 +21501,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8dbb1469de025e242a220249c9afae38, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24396,7 +24396,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 8.75, y: 1, z: 3.05}
-  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
+  m_LocalScale: {x: 0.98, y: 0.98, z: 0.98}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 740053289}
@@ -25262,7 +25262,7 @@ MonoBehaviour:
   player: {fileID: 815429401}
   speed: 1
   attackRange: 1
-  chaseRange: 5
+  chaseRange: 6
 --- !u!54 &475796395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25318,7 +25318,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: abe6bcb3c1d4b554ca1f4c6c8ebfa0cd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
