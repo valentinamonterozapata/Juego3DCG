@@ -1,10 +1,31 @@
 using UnityEngine;
 
+/// <summary>
+/// Controla el comportamiento básico del zombie (persecución y ataque).
+/// </summary>
+/// <remarks>
+/// Coordina con <see cref="ZombieAttackDamage"/> para los ataques.
+/// </remarks>
 public class Zombie : MonoBehaviour
 {
+    /// <summary>
+    /// Referencia al jugador.
+    /// </summary>
     public Transform player;
+
+    /// <summary>
+    /// Velocidad de movimiento.
+    /// </summary>
     public float speed = 3f;
+
+    /// <summary>
+    /// Rango para iniciar ataque.
+    /// </summary>
     public float attackRange = 1.5f;
+
+    /// <summary>
+    /// Rango para iniciar persecución.
+    /// </summary>
     public float chaseRange = 10f;
 
     private Animator anim;
@@ -18,6 +39,8 @@ public class Zombie : MonoBehaviour
 
     void Update()
     {
+        if (player == null) return;
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= attackRange)
@@ -28,7 +51,7 @@ public class Zombie : MonoBehaviour
         }
         else if (distanceToPlayer > attackRange && distanceToPlayer < chaseRange)
         {
-            // Modo caminar
+            // Modo persecución
             anim.SetBool("isWalking", true);
             anim.SetBool("isPunching", false);
 
@@ -41,7 +64,7 @@ public class Zombie : MonoBehaviour
         }
         else
         {
-            // Modo idle
+            // Modo inactivo
             anim.SetBool("isWalking", false);
             anim.SetBool("isPunching", false);
         }

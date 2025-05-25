@@ -45898,9 +45898,9 @@ MonoBehaviour:
   hasKey: 0
   keyCounterText: {fileID: 136378009}
   pickupRange: 3
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 8d22ee064d5cf5e4e9d38000ea2dabbd, type: 3}
   nextSceneName: Scene2EC
-  doorSound: {fileID: 0}
+  doorSound: {fileID: 8300000, guid: c88e6e96ee10eef4789af3d7c4ef90d1, type: 3}
 --- !u!114 &815429410
 MonoBehaviour:
   m_ObjectHideFlags: 0
