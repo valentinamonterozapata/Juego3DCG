@@ -1,73 +1,60 @@
 using UnityEngine;
 
-/// <summary>
-/// Maneja el sistema de daño y detección de ataques del zombie.
-/// </summary>
-/// <remarks>
-/// Incluye visualización de rango de ataque en el editor.
-/// </remarks>
 public class ZombieAttackDamage : MonoBehaviour
 {
-    [Header("Daño")]
-    /// <summary>
-    /// Daño que aplica el zombie por ataque.
-    /// </summary>
-    public int damage = 1;
+    [Header("Capa del Jugador (LayerMask)")]
+    public LayerMask playerLayerMask;    // Marca aquí la capa “Player”
 
-    /// <summary>
-    /// Tiempo entre ataques.
-    /// </summary>
-    public float attackCooldown = 2f;
+    [Header("Parámetros de ataque")]
+    public float attackRadius = 1.5f;  // Radio de tu esfera de golpe
+    public Vector3 attackOffset = new Vector3(0, 1, 0.5f); // Desplaza la esfera al frente y altura del torso
+    public float attackCooldown = 1.0f;  // Segundos entre cada golpe
+    public int damage = 1;     // Daño por golpe (1 vida)
 
-    [Header("Detección")]
-    /// <summary>
-    /// Radio del área de ataque.
-    /// </summary>
-    public float attackRadius = 1.5f;
-
-    /// <summary>
-    /// Offset para ajustar la posición del ataque.
-    /// </summary>
-    public Vector3 attackOffset;
-
-    private float lastAttackTime;
-    private Animator anim;
-
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
+    private float lastAttackTime = -Mathf.Infinity;
 
     void Update()
     {
-        if (anim.GetBool("isPunching") && Time.time - lastAttackTime >= attackCooldown)
+        // Si ha pasado el cooldown, intentamos golpear
+        if (Time.time >= lastAttackTime + attackCooldown)
         {
-            Attack();
+            TryAttack();
         }
     }
 
-    /// <summary>
-    /// Realiza un ataque y aplica daño al jugador si está en rango.
-    /// </summary>
-    void Attack()
+    private void TryAttack()
     {
-        Vector3 attackPosition = transform.position + transform.forward * attackOffset.z + transform.up * attackOffset.y;
-        Collider[] hitPlayers = Physics.OverlapSphere(attackPosition, attackRadius);
+        // Calcula posición mundial de la esfera de ataque
+        Vector3 worldPos = transform.TransformPoint(attackOffset);
 
-        foreach (Collider player in hitPlayers)
+        // Buscamos colisiones sólo en la capa del Player
+        Collider[] hits = Physics.OverlapSphere(worldPos, attackRadius, playerLayerMask);
+        foreach (Collider col in hits)
         {
-            if (player.CompareTag("Player"))
+            if (col.CompareTag("Player"))
             {
-                player.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+                Debug.Log("Zombie golpeó al Player");
+                // Llamamos a TakeDamage(1) en su script de salud
+                PlayerHealth ph = col.GetComponent<PlayerHealth>();
+                if (ph != null)
+                {
+                    ((PlayerHealth)ph).takeDamage(damage); // Especifica explícitamente el método correcto
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerHealth no encontrado en el Player");
+                }
                 lastAttackTime = Time.time;
+                break; // un sólo golpe por ciclo
             }
         }
     }
 
     void OnDrawGizmosSelected()
     {
-        Vector3 attackPosition = transform.position + transform.forward * attackOffset.z + transform.up * attackOffset.y;
+        // Para visualizar el área de golpe en el editor
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition, attackRadius);
+        Vector3 worldPos = transform.TransformPoint(attackOffset);
+        Gizmos.DrawWireSphere(worldPos, attackRadius);
     }
 }
