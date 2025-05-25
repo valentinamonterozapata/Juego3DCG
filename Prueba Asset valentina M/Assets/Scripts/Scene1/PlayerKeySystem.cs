@@ -1,19 +1,42 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SceneManagement;
 
+using UnityEngine;
+
+/// <summary>
+/// Maneja la recolección de llaves y la interacción con puertas.
+/// </summary>
+/// <remarks>
+/// Incluye efectos de sonido y actualización de UI al recoger llaves.
+/// </remarks>
 public class PlayerKeySystem : MonoBehaviour
 {
     [Header("Configuración Llave")]
+    /// <summary>
+    /// Indica si el jugador tiene la llave.
+    /// </summary>
     public bool hasKey = false;
+
+    /// <summary>
+    /// Texto UI que muestra el estado de la llave.
+    /// </summary>
     public TextMeshProUGUI keyCounterText;
+
+    /// <summary>
+    /// Rango para recoger llaves.
+    /// </summary>
     public float pickupRange = 3f;
+
+    /// <summary>
+    /// Sonido al recoger una llave.
+    /// </summary>
     public AudioClip pickupSound;
 
     [Header("Configuración Puerta")]
+    /// <summary>
+    /// Nombre de la escena a cargar al interactuar con la puerta.
+    /// </summary>
     public string nextSceneName = "Scene2EC";
-    public AudioClip doorSound;
 
     private void Update()
     {
@@ -23,6 +46,9 @@ public class PlayerKeySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Intenta recoger una llave mediante un raycast.
+    /// </summary>
     void TryPickupKey()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -44,6 +70,9 @@ public class PlayerKeySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Actualiza el contador de llaves en la UI.
+    /// </summary>
     void UpdateKeyUI()
     {
         if (keyCounterText != null)
@@ -54,9 +83,6 @@ public class PlayerKeySystem : MonoBehaviour
     {
         if (other.CompareTag("Door") && hasKey)
         {
-            if (doorSound != null)
-                AudioSource.PlayClipAtPoint(doorSound, transform.position);
-
             SceneManager.LoadScene(nextSceneName);
         }
     }
