@@ -7,17 +7,17 @@ public class PlayerKeySystem : MonoBehaviour
 {
     [Header("Configuración Llave")]
     public bool hasKey = false;
-    public TextMeshProUGUI keyCounterText; // Arrastra el Texto del Canvas aquí
-    public float pickupRange = 3f; // Rango para recoger con clic
-    public AudioClip pickupSound; // Opcional
+    public TextMeshProUGUI keyCounterText;
+    public float pickupRange = 3f;
+    public AudioClip pickupSound;
 
     [Header("Configuración Puerta")]
     public string nextSceneName = "Scene2EC";
-    public AudioClip doorSound; // Opcional
+    public AudioClip doorSound;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Click izquierdo
+        if (Input.GetMouseButtonDown(0))
         {
             TryPickupKey();
         }
@@ -28,7 +28,6 @@ public class PlayerKeySystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        // Añade una LayerMask para filtrar solo la capa de la llave
         int keyLayerMask = 1 << LayerMask.NameToLayer("Key");
 
         if (Physics.Raycast(ray, out hit, pickupRange, keyLayerMask))
