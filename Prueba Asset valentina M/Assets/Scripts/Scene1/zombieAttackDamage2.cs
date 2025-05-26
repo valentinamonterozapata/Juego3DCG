@@ -36,7 +36,7 @@ public class ZombieAttackDamage2 : MonoBehaviour
             if (c.CompareTag("Player"))
             {
                 // Golpe válido
-                c.GetComponent<PlayerHealthController>()?.TakeDamage(damage);
+                c.GetComponent<PlayerHealth>()?.TakeDamage(damage);
                 lastAttackTime = Time.time;
                 break;  // un solo golpe por ciclo
             }

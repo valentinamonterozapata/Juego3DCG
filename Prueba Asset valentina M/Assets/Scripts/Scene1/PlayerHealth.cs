@@ -8,7 +8,7 @@ using UnityEngine;
 /// <remarks>
 /// Se comunica con el sistema de escenas para reiniciar el nivel al morir.
 /// </remarks>
-public class PlayerHealthController : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     /// <summary>
     /// Salud máxima del jugador.
