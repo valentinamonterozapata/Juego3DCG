@@ -55,7 +55,7 @@ public class ZombieAttackDamage : MonoBehaviour
             if (col.CompareTag("Player"))
             {
                 Debug.Log("💥 Zombie golpeó al Player");
-                var ph = col.GetComponent<PlayerHealth>();
+                var ph = col.GetComponent<PlayerHealth2>();
                 if (ph != null) ph.takeDamage(damage);
                 else Debug.LogError("PlayerHealth no encontrado en el Player");
                 break; // un solo golpe por ciclo

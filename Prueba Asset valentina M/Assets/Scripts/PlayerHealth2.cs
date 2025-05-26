@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth2 : MonoBehaviour
 {
     [Header("Configuración de salud")]
     public int MaxHealth = 5;      // Corazones totales al iniciar

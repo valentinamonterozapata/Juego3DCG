@@ -1,5 +1,5 @@
+// Rename the class to avoid conflict with another 'PlayerHealth' class
 using UnityEngine.SceneManagement;
-
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +8,7 @@ using UnityEngine;
 /// <remarks>
 /// Se comunica con el sistema de escenas para reiniciar el nivel al morir.
 /// </remarks>
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealthController : MonoBehaviour
 {
     /// <summary>
     /// Salud máxima del jugador.
