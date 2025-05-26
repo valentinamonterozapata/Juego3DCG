@@ -63,7 +63,7 @@ public class GuardarCargar : MonoBehaviour
             InfoPlayer.Instance.CargarPartida();
          
         }
-        catch (System.Exception E)
+        catch (System.Exception e)
         {
             
  
