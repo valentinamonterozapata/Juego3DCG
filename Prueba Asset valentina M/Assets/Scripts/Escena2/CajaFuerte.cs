@@ -3,7 +3,7 @@ using TMPro;
 
 public class CajaFuerte : MonoBehaviour
 {
-    public string codigoCorrecto = "1234";
+    public string codigoCorrecto = "2864";
     private string codigoIngresado = "";
 
     public TMP_Text displayCodigo;
@@ -32,32 +32,33 @@ public class CajaFuerte : MonoBehaviour
         if (codigoIngresado == codigoCorrecto)
         {
             Debug.Log("Código correcto");
-            if (sonidoCorrecto && !sonidoCorrecto.isPlaying) sonidoCorrecto.Play();
+            if (sonidoCorrecto) sonidoCorrecto.Play();
 
-            if (panelCodigoUI != null)
-                panelCodigoUI.SetActive(false);
-
+            panelCodigoUI.SetActive(false);
             if (objetoMaletaAbierta != null)
                 objetoMaletaAbierta.SetActive(true);
 
-            // Evita que se vuelva a abrir
-            Maleta maleta = FindObjectOfType<Maleta>();
-            if (maleta != null)
-            {
-                maleta.BloquearMaleta();
-            }
+            // Limpieza
+            codigoIngresado = "";
+            displayCodigo.text = "";
         }
         else
         {
             Debug.Log("Código incorrecto");
             if (sonidoIncorrecto) sonidoIncorrecto.Play();
-            Borrar();
+
+            codigoIngresado = "";
+            displayCodigo.text = "";
         }
     }
 
     public void CerrarPanel()
     {
-        panelCodigoUI.SetActive(false);  // Oculta el panel
-        Borrar();                         // Limpia el código ingresado y el display
+        Debug.Log("Cerrar panel de código");
+        panelCodigoUI.SetActive(false);
+
+        // Limpieza del código y display
+        codigoIngresado = "";
+        displayCodigo.text = "";
     }
 }
