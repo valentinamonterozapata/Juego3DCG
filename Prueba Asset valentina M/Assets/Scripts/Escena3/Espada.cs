@@ -35,7 +35,7 @@ public class Espada : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (GameManager.Instance.CantidadCorazones() == 5)
+            if (GameController3.Instance.CantidadCorazones() == 5)
             {
                 SceneManager.LoadScene(nombreSiguienteEscena);
             }

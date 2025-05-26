@@ -14,7 +14,7 @@ public class RecogerVidas : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.AgregarCorazon();
+            GameController3.Instance.AgregarCorazon();
             Destroy(gameObject);
         }
     }

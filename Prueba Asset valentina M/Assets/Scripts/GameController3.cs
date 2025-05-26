@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 /// Es el que actuaiza la UI de los corazones y reinicia la escena si el jugador no tiene corazones.
 /// </summary>
 
-public class GameManager : MonoBehaviour
+public class GameController3 : MonoBehaviour
 {
     /// <summary>
     /// Referencia a la instancia del GameManager.
     /// </summary>
-    public static GameManager Instance;
+    public static GameController3 Instance;
 
     /// <summary>
     /// Array de imágenes que representan los corazones en la UI.
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
             if (Instance == null)
             {
                 Instance = this;
-                 DontDestroyOnLoad(gameObject); 
+                // DontDestroyOnLoad(gameObject); 
             }
             else
             {
