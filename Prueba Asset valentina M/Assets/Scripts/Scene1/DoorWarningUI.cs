@@ -4,7 +4,7 @@ using UnityEngine;
 /// Controla la visualización de advertencias cuando el jugador se acerca a una puerta sin llave.
 /// </summary>
 /// <remarks>
-/// Depende de <see cref="PlayerKeySystem"/> para verificar el estado de la llave.
+/// Depende de <see cref="GameControllerScene1"/> para verificar el estado de la llave.
 /// </remarks>
 public class DoorWarningUI : MonoBehaviour
 {
@@ -20,13 +20,13 @@ public class DoorWarningUI : MonoBehaviour
 
     private Transform player;
     private Transform door;
-    private PlayerKeySystem playerKeySystem;
+    private GameControllerScene1 gameControllerScene1;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         door = GameObject.FindGameObjectWithTag("Door").transform;
-        playerKeySystem = player.GetComponent<PlayerKeySystem>();
+        gameControllerScene1 = player.GetComponent<GameControllerScene1>();
         warningPanel.SetActive(false);
     }
 
@@ -36,7 +36,7 @@ public class DoorWarningUI : MonoBehaviour
 
         float distance = Vector3.Distance(player.position, door.position);
 
-        if (distance <= displayDistance && !playerKeySystem.hasKey)
+        if (distance <= displayDistance && !gameControllerScene1.hasKey)
         {
             warningPanel.SetActive(true);
         }

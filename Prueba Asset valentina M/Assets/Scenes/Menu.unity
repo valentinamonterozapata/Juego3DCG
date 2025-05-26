@@ -4206,7 +4206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreTMPInputField: {fileID: 597490547}
-  autosaveInterval: 60
+  autosaveInterval: 30
 --- !u!114 &898544685
 MonoBehaviour:
   m_ObjectHideFlags: 0

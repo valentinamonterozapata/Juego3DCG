@@ -1,15 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using UnityEngine;
-
-/// <summary>
-/// Maneja la recolección de llaves y la interacción con puertas.
-/// </summary>
-/// <remarks>
-/// Incluye efectos de sonido y actualización de UI al recoger llaves.
-/// </remarks>
-public class PlayerKeySystem : MonoBehaviour
+public class GameControllerScene1 : MonoBehaviour
 {
     [Header("Configuración Llave")]
     /// <summary>

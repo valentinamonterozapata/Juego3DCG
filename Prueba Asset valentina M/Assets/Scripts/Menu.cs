@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro; // Importa TextMeshPro
-using UnityEngine.SceneManagement;
+
 
 public class Menu : MonoBehaviour
 {
