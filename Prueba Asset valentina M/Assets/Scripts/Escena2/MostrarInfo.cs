@@ -1,25 +1,32 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
+using System.Collections;
 
 public class MostrarInfo : MonoBehaviour
 {
-    public GameObject panelInfo;
-    public TMP_Text tituloTexto;
-    public TMP_Text descripcionTexto;
-    public Image imagenInfo;
+    [Header("Objeto de Vista Previa")]
+    public GameObject modeloAmpliado;      // Objeto duplicado, más grande, oculto al inicio
+    public float duracionVista = 4f;       // Tiempo que se mostrará en pantalla
 
-    [Header("Contenido de este objeto")]
-    public string titulo;
-    public string descripcion;
-    public Sprite imagen;
-
-    public void MostrarPanel()
+    void Start()
     {
-        tituloTexto.text = titulo;
-        descripcionTexto.text = descripcion;
-        imagenInfo.sprite = imagen;
+        if (modeloAmpliado != null)
+        {
+            modeloAmpliado.SetActive(false); // Ocultar al principio
+        }
+    }
 
-        panelInfo.SetActive(true);
+    void OnMouseDown()
+    {
+        StartCoroutine(MostrarVistaPreviaPorTiempo());
+    }
+
+    IEnumerator MostrarVistaPreviaPorTiempo()
+    {
+        if (modeloAmpliado == null)
+            yield break;
+
+        modeloAmpliado.SetActive(true);                      // Mostrar objeto
+        yield return new WaitForSeconds(duracionVista);     // Esperar duración
+        modeloAmpliado.SetActive(false);                    // Ocultar objeto
     }
 }
