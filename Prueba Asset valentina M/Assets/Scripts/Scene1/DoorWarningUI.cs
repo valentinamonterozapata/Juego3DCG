@@ -42,7 +42,7 @@ public class DoorWarningUI : MonoBehaviour
         }
         else
         {
-            warningPanel.SetActive(false);
+            warningPanel.SetActive(false);  
         }
     }
 }
