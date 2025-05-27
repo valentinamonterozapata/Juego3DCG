@@ -69,4 +69,16 @@ public class ZombieAttackDamage : MonoBehaviour
         Vector3 worldPos = transform.TransformPoint(attackOffset);
         Gizmos.DrawWireSphere(worldPos, attackRadius);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth ph = other.GetComponent<PlayerHealth>();
+            if (ph != null)
+            {
+                ph.TakeDamage(damage);
+            }
+        }
+    }
 }
