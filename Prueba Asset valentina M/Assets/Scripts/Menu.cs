@@ -170,6 +170,10 @@ public class Menu : MonoBehaviour
         MostrarControles.SetActive(false);
     }
 
+    /// <summary>
+    /// Vuelve al menú principal cerrando todos los paneles abiertos.
+    /// </summary>
+
     public void VolverAlMenuPrincipal()
     {
         CerrarTodosLosPaneles();
