@@ -50,7 +50,7 @@ public class GuardarCargar : MonoBehaviour
         }
         catch (System.Exception E)
         {
-            Debug.LogError("Error al guardar: " + E.Message);
+            //Debug.LogError("Error al guardar: " + E.Message);
         
         }
     }
