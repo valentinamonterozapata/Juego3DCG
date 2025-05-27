@@ -1,8 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PausaEscena1 : MonoBehaviour
 {

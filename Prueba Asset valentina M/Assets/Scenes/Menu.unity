@@ -4534,7 +4534,7 @@ MonoBehaviour:
   opcionesPanel: {fileID: 574397683}
   instruccionesPanel: {fileID: 270425147}
   creditosPanel: {fileID: 592858989}
-  MostrarControles: {fileID: 0}
+  MostrarControles: {fileID: 2052541990}
   menuPrincipalPanel: {fileID: 1307411956}
   volumeSlider: {fileID: 203686007}
   panelIngresoNombre: {fileID: 1930037516}
