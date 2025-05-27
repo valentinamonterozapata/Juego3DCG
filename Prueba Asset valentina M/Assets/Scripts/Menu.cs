@@ -3,8 +3,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro; // Importa TextMeshPro
 
+/// <summary>
+/// este script maneja el menú principal del juego, incluyendo la navegación entre diferentes paneles,
+/// para especificar lo que tienen que hacer los botones del menú, y la entrada del nombre del jugador.
+/// </summary>
+
 public class Menu : MonoBehaviour
 {
+
+    /// <summary>
+    /// Paneles del menú principal.
+    /// </summary>
+
     public GameObject opcionesPanel;
     public GameObject instruccionesPanel;
     public GameObject creditosPanel;
@@ -15,6 +25,11 @@ public class Menu : MonoBehaviour
     public GameObject panelIngresoNombre;
 
     public TMP_InputField inputNombre;
+
+    /// <summary>
+    /// Método para iniciar el juego y mostrar el panel de ingreso de nombre.   
+    /// </summary>
+
 
     private bool isPaused = false;
 
@@ -70,11 +85,19 @@ public class Menu : MonoBehaviour
         menuPrincipalPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// Muestra el panel de opciones: como bajar olumen y cargar del menú principal.
+    /// </summary>
+
     public void MostrarOpciones()
     {
         CerrarTodosLosPaneles();
         opcionesPanel.SetActive(true);
     }
+
+    /// <summary>
+    /// Muestra el panel de instrucciones del juego.
+    /// </summary>
 
     public void MostrarInstrucciones()
     {
@@ -82,17 +105,29 @@ public class Menu : MonoBehaviour
         instruccionesPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Muestra el panel de créditos del juego.
+    /// </summary>
+
     public void MostrarCreditos()
     {
         CerrarTodosLosPaneles();
         creditosPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Muestra el panel de controles de como manejar al player desde el teclado del juego.
+    /// </summary>
+
     public void MostrarControless()
     {
         CerrarTodosLosPaneles();
         MostrarControles.SetActive(true);
     }
+
+    /// <summary>
+    /// Confirma el nombre ingresado por el jugador y lo guarda en PlayerPrefs.
+    /// </summary>
 
     public void ConfirmarNombre()
     {
@@ -108,9 +143,13 @@ public class Menu : MonoBehaviour
 
         PlayerPrefs.SetString("NombreJugador", nombreJugador);
 
+        // Cargar escena
         SceneManager.LoadScene("Scene1VMZ");
     }
 
+    /// <summary>
+    /// Cierra la aplicación del juego cuando se presiona el botón de salir.
+    /// </summary>
     public void Salir()
     {
         Application.Quit();
@@ -119,6 +158,9 @@ public class Menu : MonoBehaviour
 #endif
     }
 
+    /// <summary>
+    /// cierra todos los paneles del menú principal para evitar superposiciones.
+    /// </summary>
     private void CerrarTodosLosPaneles()
     {
         opcionesPanel.SetActive(false);
