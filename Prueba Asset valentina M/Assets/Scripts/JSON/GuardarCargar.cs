@@ -48,9 +48,9 @@ public class GuardarCargar : MonoBehaviour
             InfoPlayer.Instance.GuardarPartida();
 
         }
-        catch (System.Exception e)
+        catch (System.Exception E)
         {
-            Debug.LogError("Error al guardar: " + e.Message);
+            //Debug.LogError("Error al guardar: " + E.Message);
         
         }
     }
@@ -63,9 +63,9 @@ public class GuardarCargar : MonoBehaviour
             InfoPlayer.Instance.CargarPartida();
          
         }
-        catch (System.Exception e)
+        catch (System.Exception E)
         {
-            Debug.LogError("Error al cargar: " + e.Message);
+            
  
         }
     }
