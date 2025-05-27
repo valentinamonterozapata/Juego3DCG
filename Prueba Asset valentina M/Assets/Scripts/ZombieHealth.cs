@@ -10,7 +10,7 @@ public class ZombieHealth : MonoBehaviour
     private Animator anim;
     private bool isDead = false;
     public HUDZ healthUI; // Referencia al HUD de vidas
-    public GameObject panelHasGanado;
+    public GameObject panelHasGanado;   
 
     void Start()
     {
@@ -59,7 +59,6 @@ public class ZombieHealth : MonoBehaviour
 
     void EndScene()
     {
-        // Cambia "VictoryScene" por el nombre de tu escena de victoria o final
-        SceneManager.LoadScene("VictoryScene");
+        
     }
 }
